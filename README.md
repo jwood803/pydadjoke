@@ -1,2 +1,2 @@
 # PyDadJoke
-CLI in Python to retrieve a random dad joke. Uses [icanhazedadjoke](https://icanhazdadjoke.com/) for the API.
+CLI in Python to retrieve a random dad joke. Uses [icanhazdadjoke](https://icanhazdadjoke.com/) for the API.
