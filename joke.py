@@ -1,18 +1,48 @@
 import fire
 import requests
+from typing import List
 
-
-def joke():
-    header = {
+base_url = "https://icanhazdadjoke.com"
+header = {
         "Accept": "application/json"
     }
 
-    resp = requests.get("https://icanhazdadjoke.com/", headers=header)
+
+def joke() -> str:
+    resp = requests.get(base_url, headers=header)
 
     joke_json = resp.json()
 
     return joke_json["joke"]
 
 
+def search(term: str) -> List[str]:
+    url = f"{base_url}/search?term={term}&limit=10"
+
+    resp = requests.get(url, headers=header)
+
+    joke_json = resp.json()
+
+    results = joke_json["results"]
+
+    return [item["joke"] for item in results]
+
+
+def list() -> List[str]:
+    url = f"{base_url}/search?limit=10"
+
+    resp = requests.get(url, headers=header)
+
+    joke_json = resp.json()
+
+    results = joke_json["results"]
+
+    return [item["joke"] for item in results]
+
+
 if __name__ == "__main__":
-    fire.Fire(joke)
+    fire.Fire({
+        "joke": joke,
+        "search": search,
+        "list": list
+    })
