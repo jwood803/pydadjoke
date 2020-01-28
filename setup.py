@@ -7,7 +7,7 @@ read_me = (current_dir / "README.md").read_text()
 
 setup(
     name="pydadjoke",
-    version="1.0.3",
+    version="1.0.0",
     description="CLI to call the icanhazdadjoke API and returns a dad joke",
     long_description=read_me,
     long_description_content_type="text/markdown",
