@@ -28,19 +28,7 @@ def search(term: str) -> List[str]:
     return [item["joke"] for item in results]
 
 
-def list() -> List[str]:
-    url = f"{base_url}/search?limit=10"
-
-    resp = requests.get(url, headers=header)
-
-    joke_json = resp.json()
-
-    results = joke_json["results"]
-
-    return [item["joke"] for item in results]
-
-
-if __name__ == "__main__":
+def main():
     fire.Fire({
         "joke": joke,
         "search": search,
