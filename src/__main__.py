@@ -31,6 +31,5 @@ def search(term: str) -> List[str]:
 def main():
     fire.Fire({
         "joke": joke,
-        "search": search,
-        "list": list
+        "search": search
     })
